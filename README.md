@@ -1,4 +1,3 @@
-# Java-BeatBox
+# Java
 
-A GUI application written in Java for creating beat sequences using MIDI and sharing them on a network.
-(Inspired from Head First Java)
+Application written in Java.
