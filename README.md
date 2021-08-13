@@ -1,3 +1,3 @@
 # Java
 
-Application written in Java.
+Applications written in Java.
