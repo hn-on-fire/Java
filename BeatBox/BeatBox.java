@@ -1,7 +1,7 @@
-
 package beatbox;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
@@ -41,32 +41,45 @@ public class BeatBox {
         theFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BorderLayout layout = new BorderLayout();
         JPanel background = new JPanel(layout);
+        background.setBackground(Color.decode("#730000"));
         background.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         checkBoxList = new ArrayList<>();
         Box buttonBox = new Box(BoxLayout.Y_AXIS);
+        GridLayout buttonGrid = new GridLayout(4, 1);
+        buttonGrid.setVgap(25);
+        buttonGrid.setHgap(15);
+        JPanel buttons = new JPanel(buttonGrid);
+        buttons.setBackground(Color.decode("#730000"));
+        buttons.setBorder(BorderFactory.createEmptyBorder(5, 15, 10, 5));
         JButton start = new JButton("Start");
+        customButton(start, "#A7E99C");
         start.addActionListener((ActionEvent a) -> {
             buildTrackAndStart();
         });
-        buttonBox.add(start);
+        buttons.add(start);
         JButton stop = new JButton("Stop");
+        customButton(stop, "#E99B99A");
         stop.addActionListener((ActionEvent a) -> {
             sequencer.stop();
         });
-        buttonBox.add(stop);
+        buttons.add(stop);
         JButton upTempo = new JButton("Tempo Up");
         upTempo.addActionListener((ActionEvent a) -> {
-            sequencer.setTempoFactor((float)(sequencer.getTempoFactor()*1.03));
+            sequencer.setTempoFactor((float) (sequencer.getTempoFactor() * 1.03));
         });
-        buttonBox.add(upTempo);
+        buttons.add(upTempo);
         JButton downTempo = new JButton("Tempo Down");
         downTempo.addActionListener((ActionEvent a) -> {
-            sequencer.setTempoFactor((float)(sequencer.getTempoFactor()*0.97));
+            sequencer.setTempoFactor((float) (sequencer.getTempoFactor() * 0.97));
         });
-        buttonBox.add(downTempo);
+        buttons.add(downTempo);
+        buttonBox.add(buttons);
         Box nameBox = new Box(BoxLayout.Y_AXIS);
-        for(String name : instrumentNames){
-            nameBox.add(new Label(name));
+        for (String name : instrumentNames) {
+            Label labelName = new Label(name);
+            labelName.setBackground(Color.decode("#FED0BB"));
+            labelName.setFocusable(false);
+            nameBox.add(labelName);
         }
         background.add(BorderLayout.EAST, buttonBox);
         background.add(BorderLayout.WEST, nameBox);
@@ -75,19 +88,30 @@ public class BeatBox {
         grid.setVgap(1);
         grid.setHgap(2);
         mainPanel = new JPanel(grid);
+        mainPanel.setBackground(Color.decode("#730000"));
         background.add(BorderLayout.CENTER, mainPanel);
         for (int i = 0; i < 256; i++) {
             JCheckBox c = new JCheckBox();
+            c.setBackground(Color.decode("#730000"));
             c.setSelected(false);
             checkBoxList.add(c);
             mainPanel.add(c);
         }
+        theFrame.setResizable(false);
         theFrame.setVisible(true);
         theFrame.setBounds(50, 50, 300, 300);
         theFrame.pack();
-        
-    }
-    private void buildTrackAndStart(){}
 
-   
+    }
+
+    private void buildTrackAndStart() {
+    }
+
+    private void customButton(JButton button, String color) {
+        button.setBorderPainted(true);
+        button.setBackground(Color.decode(color));
+        button.setFocusPainted(false);
+        button.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+    }
+
 }
