@@ -125,6 +125,7 @@ public class BeatBox {
             track = sequence.createTrack();
             sequencer.setTempoInBPM(120);
         } catch (MidiUnavailableException | InvalidMidiDataException ex) {
+            errorPopUp();
         }
     }
 
@@ -149,6 +150,7 @@ public class BeatBox {
             sequencer.start();
             sequencer.setTempoInBPM(120);
         } catch (InvalidMidiDataException ex) {
+            errorPopUp();
         }
     }
 
@@ -169,8 +171,32 @@ public class BeatBox {
             a.setMessage(comd, chan, one, two);
             event = new MidiEvent(a, tick);
         } catch (InvalidMidiDataException ex) {
+            errorPopUp();
         }
         return event;
     }
 
+    private static void errorPopUp() {
+        JFrame errorFrame = new JFrame("Uh-Oh");
+        JPanel errorPanel1 = new JPanel(new GridLayout(3,1));
+        JPanel errorPanel2 = new JPanel(new BorderLayout());
+        Label errorLine1 = new Label("Looks like you've run into an error.");
+        Label errorLine2 = new Label("Please restart the app or contact the developer at:");
+        Label errorLine3 = new Label("hn.on.fire@gmail.com");
+        JButton close = new JButton("OK");
+       errorPanel1.add(errorLine1);
+       errorPanel1.add(errorLine2);
+       errorPanel1.add(errorLine3);
+       errorPanel2.add(errorPanel1, BorderLayout.NORTH);
+       errorPanel2.add(close, BorderLayout.SOUTH);
+       errorFrame.add(errorPanel2);
+        close.addActionListener((ActionEvent a) -> {
+            System.exit(0);
+        });
+        errorFrame.setAlwaysOnTop(true);
+        errorFrame.setVisible(true);
+        errorFrame.setBounds(100, 100, 100, 130);
+        errorFrame.setResizable(false);
+        errorFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
