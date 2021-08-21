@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class BrailleCell //extends BrailleCellSequence {
 {
-
+    /**
+     * 
+     * @param cell1 Boolean 2-dimensional Array
+     * @return uni-code char of the cell
+     */
     private char getUni(boolean cell1[][]) {
         if (cell1[0][0] && cell1[1][0] && cell1[2][0] && cell1[0][1] && cell1[1][1] && cell1[2][1]) {
             return '\u283f';
@@ -147,9 +151,12 @@ public class BrailleCell //extends BrailleCellSequence {
     private static boolean isSpace = false;
     private static int quotationMark = 0;
     BrailleCell tempCell;
-
+/**
+ * Creates BrailleCell Object with suitable Grade-II Braille Contractions
+ * @param str Input String
+ */
     protected BrailleCell(String str) {
-        begin();
+        clearCell();
         isLetter = true;
         isNumber = false;
         switch (str) {
@@ -1033,9 +1040,12 @@ public class BrailleCell //extends BrailleCellSequence {
 
         }
     }
-
+/**
+ * Creates BrailleCell Object for the given character
+ * @param ch Input Character
+ */
     protected BrailleCell(char ch) {
-        begin();
+        clearCell();
         if (ch != '.' || ch != ',') {
             isLetter = true;
             isNumber = false;
@@ -1186,42 +1196,31 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[2][0] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Ã¡':
-                cell1[0][0] = true;
-                cell1[1][0] = true;
-                cell1[1][1] = true;
-                cell1[2][0] = true;
-                cell1[2][1] = true;
-                break;
-            case 'Ã©':
+            case '©':
                 cell1[0][1] = true;
                 cell1[1][0] = true;
                 cell1[2][0] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Ã­':
-                cell1[0][1] = true;
-                cell1[2][0] = true;
-                break;
-            case 'Ã³':
+            case '³':
                 cell1[0][1] = true;
                 cell1[2][0] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Ãº':
+            case 'º':
                 cell1[0][1] = true;
                 cell1[1][0] = true;
                 cell1[1][1] = true;
                 cell1[2][0] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Ã¼':
+            case '¼':
                 cell1[0][0] = true;
                 cell1[1][0] = true;
                 cell1[1][1] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Ã±':
+            case '±':
                 cell1[0][0] = true;
                 cell1[0][1] = true;
                 cell1[1][0] = true;
@@ -1290,7 +1289,7 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell3[2][0] = true;
                 break;
             case '!':
-            case 'Â¡':
+            case '¡':
                 cell1[1][0] = true;
                 cell1[1][1] = true;
                 cell1[2][0] = true;
@@ -1327,13 +1326,13 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[1][1] = true;
                 cell1[2][1] = true;
                 break;
-            case 'Â£':
+            case '£':
                 cell1[0][0] = true;
                 cell1[1][0] = true;
                 cell1[2][0] = true;
                 break;
             case '?':
-            case 'Â¿':
+            case '¿':
                 cell1[1][0] = true;
                 cell1[2][0] = true;
                 cell1[2][1] = true;
@@ -1547,9 +1546,12 @@ public class BrailleCell //extends BrailleCellSequence {
                 break;
         }
     }
-
+/**
+ * Creates BrailleCell Object for the given Integer
+ * @param in Input Integer
+ */
     protected BrailleCell(int in) {
-        begin();
+        clearCell();
         isLetter = false;
         isNumber = true;
         switch (in) {
@@ -1601,7 +1603,11 @@ public class BrailleCell //extends BrailleCellSequence {
         }
 
     }
-
+/**
+ * Checks if Cell is Empty
+ * @param cell Input Boolean cell
+ * @return Boolean value to check is cell is Empty
+ */
     private boolean isNull(boolean cell[][]) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -1613,7 +1619,10 @@ public class BrailleCell //extends BrailleCellSequence {
         return true;
     }
     private static boolean wasLetter = true, wasNumber;
-
+/**
+ * Combine 6 cells 
+ * @return Object ArrrayList with an ArrayList of Boolean cells and the String equivalent
+ */
     public ArrayList<Object> getCellSequence() {
         ArrayList<boolean[][]> ret = new ArrayList<>();
         String uni = "";
@@ -1690,8 +1699,10 @@ public class BrailleCell //extends BrailleCellSequence {
         return objj;
 
     }
-
-    final void begin() {
+/**
+ * Clears Braille Cell
+ */
+    final void clearCell() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
                 cell1[i][j] = false;
