@@ -236,10 +236,13 @@ public class BeatBox {
     private static void userName() {
         JFrame userNameFrame = new JFrame("Set User Name");
         JPanel userNamePanel = new JPanel();
+        JPanel innerPanel1 = new JPanel();
+        innerPanel1.setLayout(new BoxLayout(innerPanel1, BoxLayout.X_AXIS));
+        JPanel innerPanel2 = new JPanel();
+        innerPanel2.setLayout(new BoxLayout(innerPanel2, BoxLayout.X_AXIS));
         userNamePanel.setLayout(new BoxLayout(userNamePanel, BoxLayout.Y_AXIS));
         Label line1 = new Label("Select your username:");
-        Label line2 = new Label();
-        line2.setVisible(false);
+        Label line2 = new Label("");
         line2.setForeground(Color.red);
         JTextField  userName = new JTextField();
         JButton close = new JButton("OK");
@@ -247,21 +250,22 @@ public class BeatBox {
         userName.setMaximumSize(new Dimension(100,15));
         userName.setBounds(0,0, 150, 15);
         userNamePanel.add(line1);
-        userNamePanel.add(userName);
+        innerPanel1.add(userName);
+        userNamePanel.add(innerPanel1);
         userNamePanel.add(line2);
-        userNamePanel.add(close);
+        innerPanel2.add(close);
+        userNamePanel.add(innerPanel2);
         userNameFrame.add(userNamePanel);
         userName.grabFocus();
         close.addActionListener((ActionEvent a) -> {
             if(userName.getText().trim().equalsIgnoreCase("")){
-                line2.setText("Usrename required");
+                line2.setText("Username required");
                 line2.setVisible(true);
                 userName.grabFocus();
             }
             else if(userName.getText().contains(" ")){
                 line2.setText("Username cannot contain spaces");
                 line2.setVisible(true);
-                userName.grabFocus();
             }
             else{
                 userNameFrame.dispose();
