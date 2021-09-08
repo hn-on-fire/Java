@@ -1,4 +1,3 @@
-package brailleprinter;
 
 import java.util.ArrayList;
 
@@ -1060,13 +1059,6 @@ public class BrailleCell //extends BrailleCellSequence {
             isNumber = false;
         }
         switch (ch) {
-            case '=':
-                cell1[1][1] = true;
-                cell2[1][0] = true;
-                cell2[1][1] = true;
-                cell2[2][0] = true;
-                cell2[2][1] = true;
-                break;
             case ' ':
                 isSpace = true;
                 break;
