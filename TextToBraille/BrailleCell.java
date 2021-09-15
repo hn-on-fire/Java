@@ -1198,6 +1198,131 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[2][0] = true;
                 cell1[2][1] = true;
                 break;
+            case '‘':
+                cell1[2][0] = true;
+                break;
+            case '*':
+                cell1[1][1] = true;
+                cell2[1][1] = true;
+                cell2[2][0] = true;
+                break;
+            case '[':
+                cell1[0][1] = true;
+                cell1[2][1] = true;
+                cell2[0][0] = true;
+                cell2[1][0] = true;
+                cell2[2][1] = true;
+                break;
+            case ']':
+                cell1[0][1] = true;
+                cell1[2][1] = true;
+                cell2[0][1] = true;
+                cell2[1][1] = true;
+                cell2[2][0] = true;
+                break;
+            case '£':
+                cell1[0][1] = true;
+                cell2[0][0] = true;
+                cell2[1][0] = true;
+                cell2[2][0] = true;
+                break;
+            case ':':
+                cell1[1][0] = true;
+                cell1[1][1] = true;
+                break;
+            case ',':
+                cell1[1][0] = true;
+                break;
+            case '—':
+            case '–':
+                cell1[2][1] = true;
+                cell2[2][0] = true;
+                cell2[2][1] = true;
+                break;
+            case '.':
+                cell1[1][0] = true;
+                cell1[1][1] = true;
+                cell1[2][1] = true;
+                break;
+            case '$':
+                cell1[0][1] = true;
+                cell2[0][1] = true;
+                cell2[1][0] = true;
+                cell2[2][0] = true;
+                break;
+            case '…':
+                cell1[1][0] = true;
+                cell1[1][1] = true;
+                cell1[2][1] = true;
+                cell2[1][0] = true;
+                cell2[1][1] = true;
+                cell2[2][1] = true;
+                cell3[1][0] = true;
+                cell3[1][1] = true;
+                cell3[2][1] = true;
+                break;
+            case '!':
+                cell1[1][0] = true;
+                cell1[1][1] = true;
+                cell1[2][0] = true;
+                break;
+            case '€':
+                cell1[0][1] = true;
+                cell2[0][0] = true;
+                cell2[1][1] = true;
+                break;
+            case '-':
+                cell1[2][0] = true;
+                cell1[2][1] = true;
+                break;
+            case '#':
+                cell1[0][1] = true;
+                cell1[1][1] = true;
+                cell1[2][0] = true;
+                cell1[2][1] = true;
+                break;
+            case '(':
+                cell1[1][1] = true;
+                cell2[0][0] = true;
+                cell2[1][0] = true;
+                cell2[2][1] = true;
+                break;
+            case ')':
+                cell1[1][1] = true;
+                cell2[0][1] = true;
+                cell2[1][1] = true;
+                cell2[2][0] = true;
+                break;
+            case ';':
+                cell1[1][0] = true;
+                cell1[2][0] = true;
+                break;
+            case '/':
+                cell1[0][1] = true;
+                cell1[1][1] = true;
+                cell1[2][1] = true;
+                cell2[0][1] = true;
+                cell2[2][0] = true;
+                break;
+            case '¥':
+                cell1[0][1] = true;
+                cell2[0][0] = true;
+                cell2[0][1] = true;
+                cell2[1][1] = true;
+                cell2[2][0] = true;
+                cell2[2][1] = true;
+                break;
+                
+            case '"':
+            case '“':
+            case '”':
+            case '\'':
+            case '?':
+            default:
+                cell1[1][0] = true;
+                cell1[2][0] = true;
+                cell1[2][1] = true;
+                break;
             
         }
     }
