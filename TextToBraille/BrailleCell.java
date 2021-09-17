@@ -197,21 +197,12 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[0][0] = true;
                 cell1[2][1] = true;
                 break;
-            case "shall":
-                cell1[0][0] = true;
-                cell1[0][1] = true;
-                cell1[2][1] = true;
-                break;
             
             case "out":
                 cell1[0][0] = true;
                 cell1[1][0] = true;
                 cell1[1][1] = true;
                 cell1[2][1] = true;
-                break;
-            case "still":
-                cell1[0][1] = true;
-                cell1[2][0] = true;
                 break;
             case "but":
                 cell1 = new BrailleCell('b').cell1;
@@ -249,12 +240,6 @@ public class BrailleCell //extends BrailleCellSequence {
                 break;
             case "not":
                 cell1 = new BrailleCell('n').cell1;
-                break;
-            case "people":
-                cell1 = new BrailleCell('p').cell1;
-                break;
-            case "rather":
-                cell1 = new BrailleCell('r').cell1;
                 break;
             case "so":
                 cell1 = new BrailleCell('s').cell1;
@@ -801,32 +786,44 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell2 = new BrailleCell('d').cell1;
                 break;
             case "part":
-                cell1 = new BrailleCell('"').cell1;
+                cell1[1][1] = true;
                 cell2 = new BrailleCell('p').cell1;
+                break;
+            case "people":
+                cell1 = new BrailleCell('p').cell1;
                 break;
             case "perceive":
                 cell1 = new BrailleCell('p').cell1;
-                cell2 = new BrailleCell('e').cell1;
-                cell3 = new BrailleCell('r').cell1;
-                cell4 = new BrailleCell('c').cell1;
-                cell5 = new BrailleCell('v').cell1;
+                cell2[0][0] = true;
+                cell2[0][1] = true;
+                cell2[1][0] = true;
+                cell2[1][1] = true;
+                cell2[2][1] = true;
+                cell3 = new BrailleCell('c').cell1;
+                cell4 = new BrailleCell('v').cell1;
                 break;
             case "perceiving":
                 cell1 = new BrailleCell('p').cell1;
-                cell2 = new BrailleCell('e').cell1;
-                cell3 = new BrailleCell('r').cell1;
-                cell4 = new BrailleCell('c').cell1;
-                cell5 = new BrailleCell('v').cell1;
-                cell6 = new BrailleCell('g').cell1;
+                cell2[0][0] = true;
+                cell2[0][1] = true;
+                cell2[1][0] = true;
+                cell2[1][1] = true;
+                cell2[2][1] = true;
+                cell3 = new BrailleCell('c').cell1;
+                cell4 = new BrailleCell('v').cell1;
+                cell5 = new BrailleCell('g').cell1;
                 break;
             case "perhaps":
                 cell1 = new BrailleCell('p').cell1;
-                cell2 = new BrailleCell('e').cell1;
-                cell3 = new BrailleCell('r').cell1;
-                cell4 = new BrailleCell('h').cell1;
+                cell2[0][0] = true;
+                cell2[0][1] = true;
+                cell2[1][0] = true;
+                cell2[1][1] = true;
+                cell2[2][1] = true;
+                cell3 = new BrailleCell('h').cell1;
                 break;
             case "question":
-                cell1 = new BrailleCell('"').cell1;
+                cell1[1][1] = true;
                 cell2 = new BrailleCell('q').cell1;
                 break;
             case "quick":
@@ -835,6 +832,9 @@ public class BrailleCell //extends BrailleCellSequence {
                 break;
             case "quite":
                 cell1 = new BrailleCell('q').cell1;
+                break;
+            case "rather":
+                cell1 = new BrailleCell('r').cell1;
                 break;
             case "receive":
                 cell1 = new BrailleCell('r').cell1;
@@ -859,7 +859,7 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell4 = new BrailleCell('g').cell1;
                 break;
             case "right":
-                cell1 = new BrailleCell('"').cell1;
+                cell1[1][1] = true;
                 cell2 = new BrailleCell('r').cell1;
                 break;
             case "said":
@@ -867,32 +867,48 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell2 = new BrailleCell('d').cell1;
                 break;
             case "sh":
-                cell1 = new BrailleCell('%').cell1;
+                cell1[0][0] = true;
+                cell1[0][1] = true;
+                cell1[2][1] = true;
+                break;
+            case "shall":
+                cell1[0][0] = true;
+                cell1[0][1] = true;
+                cell1[2][1] = true;
                 break;
             case "should":
-                cell1 = new BrailleCell('s').cell1;
-                cell2 = new BrailleCell('h').cell1;
-                cell3 = new BrailleCell('d').cell1;
+                cell1[0][0] = true;
+                cell1[0][1] = true;
+                cell1[2][1] = true;
+                cell2 = new BrailleCell('d').cell1;
                 break;
             case "sion":
-                cell1 = new BrailleCell('.').cell1;
+                cell1[0][1] = true;
+                cell1[2][1] = true;
                 cell2 = new BrailleCell('n').cell1;
                 break;
             case "some":
-                cell1 = new BrailleCell('"').cell1;
+                cell1[1][1] = true;
                 cell2 = new BrailleCell('s').cell1;
                 break;
             case "spirit":
-                cell1 = new BrailleCell('_').cell1;
+                cell1[0][1] = true;
+                cell1[1][1] = true;
+                cell1[2][1] = true;
                 cell2 = new BrailleCell('s').cell1;
                 break;
             case "st":
-                cell1 = new BrailleCell('/').cell1;
+                cell1[0][1] = true;
+                cell1[2][0] = true;
+                break;
+            case "still":
+                cell1[0][1] = true;
+                cell1[2][0] = true;
                 break;
             case "such":
                 cell1 = new BrailleCell('s').cell1;
-                cell2 = new BrailleCell('c').cell1;
-                cell3 = new BrailleCell('h').cell1;
+                cell2[0][0]= true;
+                cell2[2][1] = true;
                 break;
             case "th":
                 cell1[0][0] = true;
