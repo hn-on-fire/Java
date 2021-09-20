@@ -154,7 +154,7 @@ public class BrailleCell //extends BrailleCellSequence {
     private boolean cell5[][] = new boolean[3][2];
     private boolean cell6[][] = new boolean[3][2];
     private static boolean isSpace = false;
-    private static int quotationMark = 0;
+    private static boolean doubleQuotationMark = true, singleQuotationMark = true;
     BrailleCell tempCell;
 
     /**
@@ -1124,9 +1124,6 @@ public class BrailleCell //extends BrailleCellSequence {
             isNumber = false;
         }
         switch (ch) {
-            case ' ':
-                isSpace = true;
-                break;
             case 'a':
                 cell1[0][0] = true;
                 break;
@@ -1385,9 +1382,47 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[2][1] = true;
                 break;
             case '"':
-            case '“':
+                if(doubleQuotationMark){
+                    cell1[1][0] = true;
+                    cell1[2][0] = true;
+                    cell1[2][1] = true;
+                    doubleQuotationMark = false;
+                }
+                else{
+                    cell1[1][1] = true;
+                    cell1[2][0] = true;
+                    cell1[2][1] = true;
+                    doubleQuotationMark = true;
+                }
+                break;
+             case '“':
+                 cell1[1][0] = true;
+                 cell1[2][0] = true;
+                 cell1[2][1] = true;
+                 break;
             case '”':
+                cell1[1][1] = true;
+                cell1[2][0] = true;
+                cell1[2][1] = true;
+                break;
             case '\'':
+                  if(!isSpace && !singleQuotationMark){
+                    
+                }
+                else if(singleQuotationMark){
+                cell1[2][1] = true;
+                cell2[1][0] = true;
+                cell2[2][0] = true;
+                cell2[2][1] = true;
+                singleQuotationMark = false;
+                }
+                else{
+                
+                }
+                break;
+            case ' ':
+                isSpace = true;
+                break;
             case '?':
             default:
                 cell1[1][0] = true;
@@ -1395,6 +1430,10 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[2][1] = true;
                 break;
             
+        }
+        
+        if (' ' != ch){
+            isSpace = false;
         }
     }
 
@@ -1549,7 +1588,7 @@ public class BrailleCell //extends BrailleCellSequence {
             uni += getUni(cell2);
         } else if (!isNull(cell1)) {
             ret.add(cell1);
-            uni += getUni(cell1);
+            uni += getUni(cell1);  
         }
         ArrayList<Object> objj = new ArrayList<>();
         objj.add(ret);
