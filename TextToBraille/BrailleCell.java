@@ -151,10 +151,8 @@ public class BrailleCell //extends BrailleCellSequence {
     private boolean cell3[][] = new boolean[3][2];
     private boolean cell4[][] = new boolean[3][2];
     private boolean cell5[][] = new boolean[3][2];
-    private boolean cell6[][] = new boolean[3][2];
     private static boolean isSpace = false;
     private static boolean doubleQuotationMark = true, singleQuotationMark = true;
-    BrailleCell tempCell;
 
     /**
      * Creates BrailleCell Object with suitable Grade-II Braille Contractions
@@ -1483,19 +1481,6 @@ public class BrailleCell //extends BrailleCellSequence {
             ret.add(cell1);
             uni += getUni(cell1);
             isSpace = false;
-        } else if (!isNull(cell6)) {
-            ret.add(cell1);
-            ret.add(cell2);
-            ret.add(cell3);
-            ret.add(cell4);
-            ret.add(cell5);
-            ret.add(cell6);
-            uni += getUni(cell1);
-            uni += getUni(cell2);
-            uni += getUni(cell3);
-            uni += getUni(cell4);
-            uni += getUni(cell5);
-            uni += getUni(cell6);
         } else if (!isNull(cell5)) {
             ret.add(cell1);
             ret.add(cell2);
@@ -1550,7 +1535,6 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell3[i][j] = false;
                 cell4[i][j] = false;
                 cell5[i][j] = false;
-                cell6[i][j] = false;
             }
         }
     }
