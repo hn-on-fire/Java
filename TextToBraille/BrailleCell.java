@@ -1054,12 +1054,14 @@ public class BrailleCell //extends BrailleCellSequence {
 
         }
     }
+    protected static boolean isApostrophe;
 
     /**
      * Creates BrailleCell Object for the given character
      *
      * @param ch Input Character
      */
+
     protected BrailleCell(char ch) {
         clearCell();
         if (ch != '.' || ch != ',') {
@@ -1348,8 +1350,9 @@ public class BrailleCell //extends BrailleCellSequence {
                 cell1[2][1] = true;
                 break;
             case '\'':
-                if (!isSpace && !singleQuotationMark) {
-
+                if (isApostrophe) {
+                    cell1[2][0] = true;
+                    isApostrophe = false;
                 } else if (singleQuotationMark) {
                     cell1[2][1] = true;
                     cell2[1][0] = true;
@@ -1357,7 +1360,11 @@ public class BrailleCell //extends BrailleCellSequence {
                     cell2[2][1] = true;
                     singleQuotationMark = false;
                 } else {
-
+                    cell1[2][1] = true;
+                    cell2[1][1] = true;
+                    cell2[2][0] = true;
+                    cell2[2][1] = true;
+                    singleQuotationMark = true;
                 }
                 break;
             case ' ':
