@@ -1,2 +1,2 @@
-### Competitive Programming Questions from CodeChef and HackerRank
+# Competitive Programming Questions from CodeChef and HackerRank
 
