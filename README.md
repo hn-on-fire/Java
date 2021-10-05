@@ -1,4 +1,4 @@
-### Java
+# Java
 ```java
 Applications written in Java.
 ```
